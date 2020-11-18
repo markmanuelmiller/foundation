@@ -1,0 +1,50 @@
+{
+  "name": "foundation",
+  "version": "1.0.0",
+  "description": "Generate database schemas",
+  "main": "./client/index.js",
+  "scripts": {
+    "start": "webpack serve --config ./webpack.config.js --mode development & node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open NODE_ENV=development & node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markmanuelmiller/foundation.git"
+  },
+  "author": "markmanuelmiller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markmanuelmiller/foundation/issues"
+  },
+  "homepage": "https://github.com/markmanuelmiller/foundation#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.1",
+    "webpack": "^5.5.0",
+    "webpack-serve": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-loader": "^8.2.1",
+    "css-loader": "^5.0.1",
+    "nodemon": "^2.0.6",
+    "react-hot-loader": "^4.13.0",
+    "redux-devtools": "^3.7.0",
+    "style-loader": "^2.0.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
