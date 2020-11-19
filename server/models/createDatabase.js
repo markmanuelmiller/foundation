@@ -3,14 +3,19 @@ const { DataTypes } = require('sequelize');
 
 // Option 1: Passing a connection URI
 // const sequelize = new Sequelize(
-//   'postgres://oxtxitiw:9voUSEegLwf5oy5pPgLeHrCQY8UzYIh_@lallah.db.elephantsql.com:5432/oxtxitiw'
+//   '[database URL'
 // );
 
 // Local database
-const sequelize = new Sequelize('servicenow', 'admin', 'password', {
-  host: 'localhost',
-  dialect: 'postgres',
-});
+const sequelize = new Sequelize(
+  '[databasename]',
+  '[database username]',
+  '[database password',
+  {
+    host: 'localhost',
+    dialect: 'postgres',
+  }
+);
 
 sequelize
   .authenticate()
