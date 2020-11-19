@@ -9,32 +9,31 @@ const mapStateToProps = (state) => ({
   schema: state.table,
 });
 const mapDispatchToProps = (dispatch) => ({
-  addTable: () => dispatch(actions.addTable()),
+  addTable: (data) => dispatch(actions.addTable(data)),
   updateSchemaOutput: (data) => dispatch(actions.updateSchemaOutput(data)),
 });
 
 const MainControls = (props) => {
   function addTable() {
-    console.log(props);
-    console.log('add table');
-    props.addTable();
+    props.addTable('standard');
   }
 
   function addJoin() {
-    console.log('add join');
+    props.addTable('join');
   }
 
   function schemaHandler() {
-    console.log('generating schema');
-    console.log(props.schema);
     const schema = generateSchema(props.schema);
     props.updateSchemaOutput(schema);
+  }
+
+  function buildHandler() {
     fetch('/api/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ schema: schema }),
+      body: JSON.stringify({ schema: props.schema.schemaOutput }),
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
@@ -42,10 +41,16 @@ const MainControls = (props) => {
 
   return (
     <div className={styles.mainControls}>
+      <h1 className={styles.mainControlsHeader}>Foundation 🏗️</h1>
+      <p>
+        Prototype your database schemas in seconds{' '}
+        <span className={styles.larger}>🏎️💨</span>
+      </p>
       <div className={styles.tableControls}>
         <button onClick={addTable} className={styles.btn}>
           Add Table
         </button>
+        <br />
         <button onClick={addJoin} className={styles.btn}>
           Add Join
         </button>
@@ -53,6 +58,10 @@ const MainControls = (props) => {
       <div className="schema-controls">
         <button onClick={schemaHandler} className={styles.btn}>
           Generate Schema
+        </button>
+        <br />
+        <button onClick={buildHandler} className={styles.btn}>
+          Build Schema
         </button>
       </div>
     </div>

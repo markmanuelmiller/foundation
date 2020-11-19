@@ -10,6 +10,14 @@ const mapStateToProps = (state) => ({
 });
 
 function Canvas(props) {
+  let textArea = null;
+
+  const copySchema = (e) => {
+    textArea.select();
+    document.execCommand('copy');
+    e.target.focus();
+  };
+
   return (
     <div className={styles.canvas}>
       <div className={styles.schema}>
@@ -18,7 +26,18 @@ function Canvas(props) {
         ))}
       </div>
       <div className={styles.output}>
-        <textarea className={styles.outputText} value={props.schema}></textarea>
+        <textarea
+          className={styles.outputText}
+          value={props.schema}
+          onChange={() => ''}
+          ref={(textarea) => (textArea = textarea)}
+        ></textarea>
+        <button
+          className={`${styles.copySchema} ${styles.btn}`}
+          onClick={copySchema}
+        >
+          Copy
+        </button>
       </div>
     </div>
   );

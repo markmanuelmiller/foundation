@@ -7,7 +7,6 @@ const databaseController = {};
 
 databaseController.runQuery = (req, res, next) => {
   if (req.body.schema) {
-    console.log(req.body.schema);
     // create the file
     createFile(req.body.schema);
 

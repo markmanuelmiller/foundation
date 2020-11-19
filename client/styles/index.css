@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
+* {
+  font-family: 'Source Code Pro', monospace;
+}
 body {
   margin: 0;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+.field {
+  padding: 10px 20px;
+  border-bottom: 2px solid #232323;
+}
+
+.tableJoin {
+  background-color: rgb(58 43 66);
 }

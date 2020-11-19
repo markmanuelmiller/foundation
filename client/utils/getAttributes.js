@@ -43,6 +43,12 @@ const attrs = {
     value: null,
     id: uuid(),
   }),
+  reference: () => ({
+    type: 'reference',
+    displayName: 'Reference',
+    value: null,
+    id: uuid(),
+  }),
 };
 
 const getAttributes = (type) => {
@@ -72,7 +78,7 @@ const getAttributes = (type) => {
       );
       break;
     case 'FK':
-      attributes.push(attrs.allowNull(), attrs.comment());
+      attributes.push(attrs.reference(), attrs.allowNull(), attrs.comment());
       break;
     case 'DATE':
       attributes.push(attrs.allowNull(), attrs.defaultValue(), attrs.comment());

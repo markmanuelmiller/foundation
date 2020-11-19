@@ -35,6 +35,11 @@ export const updateFieldType = (data) => ({
   payload: data,
 });
 
+export const updateFieldAttribute = (data) => ({
+  type: types.UPDATE_FIELD_ATTRIBUTE,
+  payload: data,
+});
+
 export const updateSchemaOutput = (data) => ({
   type: types.UPDATE_SCHEMA_OUTPUT,
   payload: data,

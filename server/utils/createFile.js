@@ -2,9 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 const createFile = (schema) => {
-  let schemaString = schema.reduce((acc, curr) => {
-    return (acc += curr);
-  }, '');
+  // let schemaString = schema.reduce((acc, curr) => {
+  //   return (acc += curr);
+  // }, '');
+
+  console.log(schema);
 
   const remote = `const sequelize = new Sequelize(
     'postgres://oxtxitiw:9voUSEegLwf5oy5pPgLeHrCQY8UzYIh_@lallah.db.elephantsql.com:5432/oxtxitiw'
@@ -27,7 +29,7 @@ const createFile = (schema) => {
     })
     .catch((err) => console.log(err));
   
-  ${schemaString}
+  ${schema}
 
   sequelize.sync();`;
 

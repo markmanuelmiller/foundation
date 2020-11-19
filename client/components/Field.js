@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../store/actions/actions';
@@ -9,11 +9,10 @@ import styles from '../styles/App.css';
 const mapDispatchToProps = (dispatch) => ({
   updateFieldType: (data) => dispatch(actions.updateFieldType(data)),
   updateFieldName: (data) => dispatch(actions.updateFieldName(data)),
+  updateFieldAttribute: (data) => dispatch(actions.updateFieldAttribute(data)),
 });
 
 const Field = (props) => {
-  // const [fieldName, setFieldName] = useState('field_name');
-
   const updateFieldType = (type) => {
     props.updateFieldType({
       tableId: props.table,
@@ -30,9 +29,12 @@ const Field = (props) => {
     });
   };
 
-  console.log(props);
+  const updateAttribute = (attr) => {
+    props.updateFieldAttribute(attr);
+  };
+
   return (
-    <div className="field">
+    <div className={styles.field}>
       <input
         type="text"
         className={styles.fieldName}
@@ -46,6 +48,9 @@ const Field = (props) => {
       <FieldAttributes
         attributes={props.field.attributes}
         table={props.table}
+        field={props.field.id}
+        updateAttribute={updateAttribute}
+        className={styles.attributes}
       />
     </div>
   );

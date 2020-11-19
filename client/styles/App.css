@@ -14,13 +14,23 @@
 .mainControls {
   grid-area: mc;
   background-color: #232323;
-
+  padding: 20px;
+  color: white;
+  border-right: 3px solid #2e2e2e;
   /* display: flex;
   align-items: stretch; */
   /* flex: 1;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto; */
+}
+
+.mainControlsHeader {
+  margin-top: 0;
+}
+
+.mainControls button {
+  margin-bottom: 10px;
 }
 
 .canvas {
@@ -32,52 +42,126 @@
 
 .schema {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /* grid-template-rows: 1fr 300px; */
   padding: 2rem;
 }
 
 .table {
-  background-color: white;
-  border: 2px solid black;
+  background-color: rgb(43, 58, 66);
+  border: 3px solid #1b272c;
   margin: 1rem;
-  height: 250px;
+  height: 400px;
   overflow: scroll;
+  box-shadow: 2px 3px 14px 0px #0e0e0e;
+}
+
+.tableJoin {
+  background-color: rgb(58 43 66);
 }
 
 .tableHeader {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #1b272c;
+  padding: 20px 20px 10px 20px;
+  display: flex;
 }
 
 .tableName {
   font-size: 24px;
+  font-weight: 900;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  width: 100%;
+  background: transparent;
 }
 
 .output {
-  background-color: black;
+  background-color: #232323;
   padding: 30px;
+  position: fixed;
+  left: 300px;
+  right: 0px;
+  bottom: 0px;
+  height: 300px;
 }
 
 .outputText {
-  background-color: black;
+  background-color: #232323;
   border: 2px solid #2e2e2e;
   color: #02ff00;
   font-size: 14px;
   width: 100%;
   height: 100%;
+  padding: 10px;
 }
 
 .btn {
-  background-color: #966cbb;
-  border: none;
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 10px;
-  border: 3px solid #873887;
+  border: 3px solid white;
   /* border-radius: 4px; */
-  background: #232323;
+  background: transparent;
   color: white;
+  cursor: pointer;
 }
 
 .btnSuccess {
   color: white;
+}
+
+.field {
+  padding: 10px 20px;
+  border-bottom: 3px solid #1b272c;
+}
+
+.fieldName {
+  font-size: 14px;
+  background: transparent;
+  color: white;
+}
+
+.fieldType {
+  /* position: relative;
+  top: 1px; */
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+}
+
+.attributes {
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.attribute {
+  padding-bottom: 5px;
+}
+
+.attribute label {
+  color: white;
+}
+
+.attribute input {
+  background: transparent;
+}
+
+.addField {
+  width: 120px;
+  padding: 5px;
+  margin-left: 3px;
+  border: 2px solid white;
+  background: transparent;
+}
+
+.copySchema {
+  position: relative;
+  bottom: 60px;
+  right: -10px;
+  float: right;
+}
+
+.larger {
+  font-size: 2em;
 }

@@ -20,7 +20,6 @@ const Table = (props) => {
   };
 
   const updateTableName = (event) => {
-    console.log(props);
     const newName = event.target.value;
     props.updateTableName({
       id: props.table.id,
@@ -28,8 +27,12 @@ const Table = (props) => {
     });
   };
 
+  console.log(props.table.type);
+  const tableClass =
+    props.table.type === 'standard' ? 'tableStandard' : 'tableJoin';
+
   return (
-    <div className={styles.table}>
+    <div className={`${styles.table} ${styles[tableClass]}`}>
       <div className={styles.tableHeader}>
         <input
           type="text"
@@ -37,17 +40,17 @@ const Table = (props) => {
           value={props.table.name}
           onChange={updateTableName}
         />
+        <button
+          className={`${styles.btn} ${styles.btnSuccess} ${styles.addField}`}
+          onClick={addField}
+        >
+          Add field
+        </button>
       </div>
       <div className="table-body">
         {props.table.fields.map((field) => {
           return <Field field={field} key={field.id} table={props.table.id} />;
         })}
-        <button
-          className={`${styles.btn} ${styles.btnSuccess}`}
-          onClick={addField}
-        >
-          +
-        </button>
       </div>
     </div>
   );

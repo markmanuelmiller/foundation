@@ -1,14 +1,14 @@
 import React from 'react';
+
 import types from '../utils/fieldTypes';
+import styles from '../styles/App.css';
 
 const FieldTypes = (props) => {
-  // const fieldType = 'STRING'
-  const fieldType = 'STRING';
-
   return (
     <select
       value={props.currentType}
       onChange={(e) => props.updateFieldType(e.target.value)}
+      className={styles.fieldType}
     >
       {types.map((type) => {
         return (
